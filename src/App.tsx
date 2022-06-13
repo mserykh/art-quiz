@@ -1,15 +1,20 @@
+import { Route, Routes } from 'react-router-dom';
+
+import Layout from './components/layout/Layout';
+import HomePage from './components/pages/HomePage';
+import SettingsPage from './components/pages/SettingsPage';
+
 import './App.scss';
 
-function App(): JSX.Element {
+const App = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="settings" element={<SettingsPage />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
